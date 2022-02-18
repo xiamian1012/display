@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
-<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/alasql/0.6.2/alasql.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.7/index.min.js"></script>
-
-
+<head>
 <style>
 html,
 body {
@@ -58,10 +51,11 @@ z-index: 2;
     }
 }
 
-#background {
+#background{
     position: absolute;
     width: 100%;
     height: 100%;
+    top:0px;
     z-index: 1;
 }
 
@@ -69,16 +63,20 @@ z-index: 2;
     position: absolute;
     width: 240px;
     height: 200px;
-        top: 65px;
-    left: 1205px;
-    z-index: 1;
+    top: 65px;
+    left: 1285px;
+    z-index: 2;
 }
 
-    </style>
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/alasql/0.6.2/alasql.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.7/index.min.js"></script>
+</head>
 
-<div id="background">
-    <img src="https://cdn.jsdelivr.net/gh/xiamian1012/echarts@store/icon/background4.jpg"/>
-</div>
+<body>
 
 <div id="video"> 
 <video  autoplay loop muted>
@@ -86,29 +84,22 @@ z-index: 2;
 </video>
 </div>
 
+<div id="background">
+    <img src="https://cdn.jsdelivr.net/gh/xiamian1012/echarts@store/icon/background4.jpg"/>
+</div>
 
 
 <div id="app">
     <div id="chart1" ></div>
 </div>
 
-<body>
 
-	<script type="text/javascript">
-		// 一开始加载就适应屏幕的宽高
-		$(function() {
-			//offsetWidth： 获取body元素对象的宽度，即offsetWidth=width+padding+border availWidth：返回当前屏幕宽度
-			var scale = document.body.clientWidth / 1920;
-			$(document.body).css("transform", "scale(" + scale + ")");
-		});
-		$(window).resize(function() {
-			var scale = document.body.clientWidth / 1920;
-			$(document.body).css("transform", "scale(" + scale + ")");
-		});
 
-     </script>
 
-     <script>
+
+</body>
+
+<script>
 const app = new Vue({
     el: '#app',
     data() {
@@ -180,8 +171,11 @@ const app = new Vue({
                         var gold_medal_height = 40
                         var Root_path = 'https://cdn.jsdelivr.net/gh/xiamian1012/echarts@store/'
                         var male_svg = setting_data.male_svg
-                        var female_svg = setting_data.female_svg
+                        console.log(setting_data)
+                        var female_svg = "path://m354.6663,136.27749c12.57,0 22.77211,-10.90121 22.77211,-24.34942c0,-13.45577 -10.20211,-24.36452 -22.77211,-24.36452c-12.58061,0 -22.78622,10.90875 -22.78622,24.36452c0,13.44821 10.20209,24.34942 22.78622,24.34942zm63.86637,105.0123l-20.43597,-81.04398c-0.19056,-0.7358 -0.45879,-1.43764 -0.78341,-2.08666c-2.32205,-7.59198 -8.98817,-13.08974 -16.86119,-13.08974l-51.72335,0c-8.20827,0 -15.10029,5.96944 -17.12938,14.07082c-0.13763,0.35469 -0.25055,0.72826 -0.35288,1.11313l-20.0725,81.04021c-1.33748,5.31286 1.6127,10.7729 6.58846,12.20301c4.96874,1.42255 10.07511,-1.73197 11.41258,-7.04482l15.76367,-63.66018l6.56732,0l-28.60896,115.18147l26.95746,0l0,79.51954c0,6.1166 4.62992,11.071 10.35736,11.071c5.71332,0 10.35384,-4.95064 10.35384,-11.071l0,-79.51954l8.2365,0l0,79.51954c0,6.1166 4.63698,11.071 10.36444,11.071c5.71331,0 10.35384,-4.95064 10.35384,-11.071l0,-79.51954l26.94329,0l-28.71481,-115.18147l6.74025,0l16.05302,63.66018c1.33746,5.31286 6.44384,8.46737 11.41253,7.04482c4.95814,-1.4301 7.90831,-6.8939 6.57791,-12.20678l-0.00001,0z"
+
                         var gold_text = setting_data.gold_text
+                         console.log(male_svg)
                         var sliver_text =setting_data.sliver_text
                         var bronze_text =setting_data.bronze_text
                         var gold=setting_data.gold
@@ -2888,16 +2882,20 @@ const app = new Vue({
 })
         }
     }
-})
+})     
 
-
-
-
-
-
-
+</script>
+        <script type="text/javascript">
+        // 一开始加载就适应屏幕的宽高
+        $(function() {
+            //offsetWidth： 获取body元素对象的宽度，即offsetWidth=width+padding+border availWidth：返回当前屏幕宽度
+            var scale = document.body.clientWidth / 1920;
+            $(document.body).css("transform", "scale(" + scale + ")");
+        });
+        $(window).resize(function() {
+            var scale = document.body.clientWidth / 1920;
+            $(document.body).css("transform", "scale(" + scale + ")");
+        });
 
      </script>
-
-</body>
 </html>
