@@ -121,11 +121,11 @@ z-index: 2;
         $(function() {
             //offsetWidth： 获取body元素对象的宽度，即offsetWidth=width+padding+border availWidth：返回当前屏幕宽度
             var scale = document.body.clientWidth / 1920;
-            $(document.body).css("transform", "scale(" + scale + ")");
+            $(document.body).css("zoom", scale);
         });
         $(window).resize(function() {
             var scale = document.body.clientWidth / 1920;
-            $(document.body).css("transform", "scale(" + scale + ")");
+            $(document.body).css("zoom", scale);
         });
 
      </script>
